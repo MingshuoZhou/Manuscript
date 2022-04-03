@@ -1,0 +1,749 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"rho_T_Oxygen_PR.DAT"'
+$!VarSet |LFDSVL1| = '"T" "rho_NIST_0.1Mpa" "rho_Soave_0.1Mpa" "rho_new_0.1Mpa" "rho_NIST_1Mpa" "rho_Soave_1Mpa" "rho_NIST_3Mpa" "rho_Soave_3Mpa" "rho_NIST_5Mpa" "rho_Soave_5Mpa" "rho_NIST_7Mpa" "rho_Soave_7Mpa" "rho_NIST_10Mpa" "rho_Soave_10Mpa"'
+$!VarSet |LFDSFN2| = '"rho_T_sat.DAT"'
+$!VarSet |LFDSVL2| = '"T" "rho_NIST_0.1Mpa" "rho_Soave_0.1Mpa" "rho_new_0.1Mpa" "rho_NIST_1Mpa" "rho_Soave_1Mpa" "rho_NIST_3Mpa" "rho_Soave_3Mpa" "rho_NIST_5Mpa" "rho_Soave_5Mpa" "rho_NIST_7Mpa" "rho_Soave_7Mpa" "rho_NIST_10Mpa" "rho_Soave_10Mpa" "T_sat" "rho_liq_sat" "rho_vap_sat"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!FrameLayout 
+  ShowBorder = No
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-2,4-15]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    XYPos
+      {
+      X = 95
+      }
+    }
+$!LineMap  [1]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 2
+    }
+  Lines
+    {
+    Color = Red
+    }
+  Symbols
+    {
+    Show = No
+    Color = Red
+    FillColor = Red
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [2]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 3
+    }
+  Lines
+    {
+    Show = No
+    Color = Green
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Green
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!LineMap  [3]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Blue
+    }
+  Symbols
+    {
+    Color = Blue
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [4]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 5
+    }
+  Lines
+    {
+    Color = Custom3
+    }
+  Symbols
+    {
+    Show = No
+    Color = Custom1
+    FillColor = Custom1
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Custom1
+    FillColor = Custom1
+    }
+  ErrorBars
+    {
+    Color = Custom1
+    }
+$!LineMap  [5]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Show = No
+    Color = Custom3
+    }
+  Symbols
+    {
+    Color = Custom3
+    FillColor = Custom3
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Custom3
+    FillColor = Custom3
+    }
+  ErrorBars
+    {
+    Color = Custom3
+    }
+$!LineMap  [6]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Green
+    }
+  Symbols
+    {
+    Show = No
+    Color = Purple
+    FillColor = Purple
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  ErrorBars
+    {
+    Color = Purple
+    }
+$!LineMap  [7]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 8
+    }
+  Lines
+    {
+    Show = No
+    Color = Red
+    }
+  Symbols
+    {
+    Color = Green
+    FillColor = Red
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [8]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Cyan
+    }
+  Symbols
+    {
+    Show = No
+    Color = Green
+    FillColor = Green
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!LineMap  [9]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 10
+    }
+  Lines
+    {
+    Show = No
+    Color = Blue
+    }
+  Symbols
+    {
+    Color = Cyan
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [10]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 11
+    }
+  Lines
+    {
+    Color = Blue
+    }
+  Symbols
+    {
+    Show = No
+    Color = Custom1
+    FillColor = Custom1
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Custom1
+    FillColor = Custom1
+    }
+  ErrorBars
+    {
+    Color = Custom1
+    }
+$!LineMap  [11]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 12
+    }
+  Lines
+    {
+    Show = No
+    Color = Custom3
+    }
+  Symbols
+    {
+    Color = Blue
+    FillColor = Custom3
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Custom3
+    FillColor = Custom3
+    }
+  ErrorBars
+    {
+    Color = Custom3
+    }
+$!LineMap  [12]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 13
+    }
+  Lines
+    {
+    Color = Purple
+    }
+  Symbols
+    {
+    Show = No
+    Color = Purple
+    FillColor = Purple
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  ErrorBars
+    {
+    Color = Purple
+    }
+$!LineMap  [13]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 14
+    }
+  Lines
+    {
+    Show = No
+    Color = Red
+    }
+  Symbols
+    {
+    Color = Purple
+    FillColor = Red
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [14]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 15
+    YAxisVar = 16
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = Dashed
+    LineThickness = 0.2
+    }
+  Symbols
+    {
+    Show = No
+    Color = Purple
+    FillColor = Purple
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  ErrorBars
+    {
+    Color = Purple
+    }
+$!LineMap  [15]
+  Name = '&DV&'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 15
+    YAxisVar = 17
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = Dashed
+    LineThickness = 0.2
+    }
+  Symbols
+    {
+    Show = No
+    Color = Red
+    FillColor = Red
+    Size = 1.5
+    LineThickness = 0.15
+    SkipMode = ByFrameUnits
+    Skipping = 2
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+$!XYLineAxis 
+  XDetail 1
+    {
+    RangeMin = 60
+    RangeMax = 400.03399999999999181
+    GRSpacing = 50
+    Ticks
+      {
+      LineThickness = 0.2
+      }
+    TickLabel
+      {
+      TextShape
+        {
+        SizeUnits = Point
+        Height = 17
+        }
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'Temperature, K'
+      TextShape
+        {
+        IsBold = No
+        SizeUnits = Point
+        Height = 17
+        }
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    RangeMin = 0.96217000484466552734
+    RangeMax = 1282.2280893664956238
+    GRSpacing = 200
+    Ticks
+      {
+      LineThickness = 0.2
+      }
+    TickLabel
+      {
+      TextShape
+        {
+        SizeUnits = Point
+        Height = 17
+        }
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'Density, kg/m<sup>3</sup>'
+      TextShape
+        {
+        IsBold = No
+        SizeUnits = Point
+        Height = 17
+        }
+      }
+    }
+$!LinePlotLayers 
+  ShowSymbols = Yes
+$!AttachText 
+  AnchorPos
+    {
+    X = 66.30391225168439
+    Y = 77.34854396762695
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = 'NIST Webbook\nSaturation line\nPR EoS'
+$!AttachText 
+  AnchorPos
+    {
+    X = 21.03565778264574
+    Y = 36.80175246440307
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '0.1'
+$!AttachText 
+  AnchorPos
+    {
+    X = 27.07192405987587
+    Y = 36.69222343921137
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '1'
+$!AttachText 
+  AnchorPos
+    {
+    X = 31.84252160155774
+    Y = 36.91128148959475
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '3'
+$!AttachText 
+  AnchorPos
+    {
+    X = 33.9844225386394
+    Y = 37.23986856516979
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '5'
+$!AttachText 
+  AnchorPos
+    {
+    X = 36.98384262631773
+    Y = 37.56424520428403
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '7'
+$!AttachText 
+  AnchorPos
+    {
+    X = 45.18072289156623
+    Y = 30.12048192771084
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = 'P = 10MPa'
+$!AttachGeom 
+  GeomType = Square
+  AnchorPos
+    {
+    X = 276.6665106999781
+    Y = 1117.389627051871
+    }
+  LineThickness = 0.2
+  RawData
+4.66881084442 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 267.5411077783626
+    Y = 1214.652381234964
+    }
+  LineThickness = 0.2
+  RawData
+1
+2
+5.05622710989E-06 0.000205953634577 
+22.0707454681 0.000205953634577 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 267.9655451235541
+    Y = 1167.335365686439
+    }
+  LinePattern = Dashed
+  PatternLength = 0.8
+  LineThickness = 0.2
+  RawData
+1
+2
+5.05622710989E-06 0.000937673496082 
+22.0707454681 0.000937673496082 
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

@@ -1,0 +1,645 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"oxygen_alpha.DAT"'
+$!VarSet |LFDSVL1| = '"temp" "PR_liq_alpha_01MPa" "PR_liq_alpha_1MPa" "PR_liq_alpha_2MPa" "PR_liq_alpha_4MPa" "PR_liq_alpha_5MPa" "PR_liq_alpha_7MPa" "PR_liq_alpha_8MPa" "PR_liq_alpha_10MPa"'
+$!VarSet |LFDSFN2| = '"oxygen_alpha -soave+gasem.DAT"'
+$!VarSet |LFDSVL2| = '"temp" "PR_liq_alpha_01MPa" "PR_liq_alpha_1MPa" "PR_liq_alpha_2MPa" "PR_liq_alpha_4MPa" "PR_liq_alpha_5MPa" "PR_liq_alpha_7MPa" "PR_liq_alpha_8MPa" "PR_liq_alpha_10MPa" "soave" "Gasem"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!FrameLayout 
+  ShowBorder = No
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 6.4
+  Height = 5
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-5,7-8,10]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    ShowText = No
+    TextShape
+      {
+      FontFamily = 'Times'
+      IsBold = No
+      SizeUnits = Point
+      Height = 20
+      }
+    Box
+      {
+      BoxType = None
+      Margin = 0
+      }
+    XYPos
+      {
+      X = 100
+      Y = 97.792
+      }
+    }
+$!LineMap  [1]
+  Name = '10 MPa'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 1
+    YAxisVar = 11
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Show = No
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 1
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!LineMap  [2]
+  Name = '10 MPa'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 1
+    YAxisVar = 10
+    }
+  Lines
+    {
+    Color = Black
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Show = No
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 1
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!LineMap  [3]
+  Name = '0.1 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 2
+    }
+  Lines
+    {
+    Show = No
+    Color = Red
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = LTri
+      }
+    Color = Red
+    FillMode = UseLineColor
+    FillColor = Red
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [4]
+  Name = '1 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 3
+    }
+  Lines
+    {
+    Show = No
+    Color = Custom3
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Black
+    FillColor = Black
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!LineMap  [5]
+  Name = '2 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Show = No
+    Color = Green
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Del
+      }
+    Color = Cyan
+    FillMode = UseSpecificColor
+    FillColor = Cyan
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [6]
+  Name = 'alpha 4MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 5
+    }
+  Lines
+    {
+    Color = Custom43
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = RTri
+      }
+    Color = Custom1
+    FillMode = UseSpecificColor
+    FillColor = Black
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Custom1
+    FillColor = Custom1
+    }
+  ErrorBars
+    {
+    Color = Custom1
+    }
+$!LineMap  [7]
+  Name = '5 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Show = No
+    Color = Cyan
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = RTri
+      }
+    Color = Green
+    FillColor = Green
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Custom3
+    FillColor = Custom3
+    }
+  ErrorBars
+    {
+    Color = Custom3
+    }
+$!LineMap  [8]
+  Name = '7 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Show = No
+    Color = Blue
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Diamond
+      }
+    Color = Blue
+    FillMode = UseSpecificColor
+    FillColor = Blue
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  ErrorBars
+    {
+    Color = Purple
+    }
+$!LineMap  [9]
+  Name = 'alpha 8MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 8
+    }
+  Lines
+    {
+    Color = Purple
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Red
+    FillMode = UseSpecificColor
+    FillColor = Black
+    Size = 1.5
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [10]
+  Name = '10 MPa'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 1
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Show = No
+    Color = Black
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Purple
+    FillColor = Purple
+    Size = 1
+    SkipMode = ByFrameUnits
+    Skipping = 1
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+  GridArea
+    {
+    DrawBorder = Yes
+    }
+  ViewportPosition
+    {
+    Y1 = 13
+    X2 = 95
+    Y2 = 95
+    }
+  ViewportTopSnapTarget = 95
+$!XYLineAxis 
+  XDetail 1
+    {
+    RangeMin = 60
+    RangeMax = 400
+    GRSpacing = 50
+    TickLabel
+      {
+      TextShape
+        {
+        FontFamily = 'Times'
+        SizeUnits = Point
+        Height = 20
+        }
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'Temperature, K'
+      TextShape
+        {
+        FontFamily = 'Times'
+        IsBold = No
+        SizeUnits = Point
+        Height = 20
+        }
+      Offset = 7
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    RangeMin = 0.4000000000000000222
+    RangeMax = 1.5
+    GRSpacing = 0.2
+    TickLabel
+      {
+      TextShape
+        {
+        FontFamily = 'Times New Roman'
+        SizeUnits = Point
+        Height = 20
+        }
+      NumFormat
+        {
+        Formatting = FixedFloat
+        Precision = 1
+        TimeDateFormat = ''
+        }
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = '<greek>a</greek>'
+      TextShape
+        {
+        FontFamily = 'Times'
+        SizeUnits = Point
+        Height = 20
+        }
+      Offset = 9
+      }
+    }
+$!LinePlotLayers 
+  ShowSymbols = Yes
+$!AttachText 
+  AnchorPos
+    {
+    X = 16.95305080721762
+    Y = 88.30009496676165
+    }
+  Zone = 3
+  TextShape
+    {
+    FontFamily = 'Times'
+    IsBold = No
+    Height = 20
+    }
+  Text = 'oxygen'
+$!AttachText 
+  AnchorPos
+    {
+    X = 80.58078110161459
+    Y = 44.23551756885089
+    }
+  Zone = 3
+  TextShape
+    {
+    FontFamily = 'Times'
+    IsBold = No
+    Height = 20
+    }
+  LineSpacing = 1.2
+  Text = '0.1\n1\n2\n5\n7\n10'
+$!AttachText 
+  AnchorPos
+    {
+    X = 76.66340218423562
+    Y = 85.56505223171889
+    }
+  Zone = 3
+  TextShape
+    {
+    FontFamily = 'Times'
+    IsBold = No
+    Height = 20
+    }
+  Text = 'P (MPa)'
+$!AttachGeom 
+  GeomType = Square
+  AnchorPos
+    {
+    X = 259.9834531999165
+    Y = 1.359165450628865
+    }
+  AttachToZone = Yes
+  Zone = 1
+  Color = White
+  IsFilled = Yes
+  Clipping = ClipToFrame
+  RawData
+102.871009827 
+### Frame Number 2 ###
+$!CreateNewFrame 
+$!FrameLayout 
+  ShowBorder = No
+  ShowHeader = No
+  HeaderColor = Green
+  XYPos
+    {
+    X = 4.7972
+    Y = 0.5311
+    }
+  Width = 2.1273
+  Height = 0.55461
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!FrameName  = 'Frame 002'
+$!GlobalTime 
+  SolutionTime = 0
+$!SketchAxis 
+  DepXToYRatio = 1
+$!SketchAxis 
+  XDetail
+    {
+    RangeMin = 0
+    RangeMax = 3.1590460317460276052
+    GRSpacing = 0.5
+    }
+$!SketchAxis 
+  YDetail
+    {
+    RangeMin = 0
+    RangeMax = 0.8236084297052147507
+    GRSpacing = 0.2
+    }
+$!AttachText 
+  AnchorPos
+    {
+    X = 47.85714285714282
+    Y = 23.28767123287674
+    }
+  TextShape
+    {
+    FontFamily = 'Times'
+    IsBold = No
+    Height = 20
+    }
+  Text = 'P (MPa)'
+$!FrameControl ActivateByNumber
+  Frame = 2
+$!SetStyleBase Config
